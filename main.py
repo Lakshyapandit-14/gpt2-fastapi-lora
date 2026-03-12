@@ -27,7 +27,7 @@ class Request(BaseModel):
 
 @app.get("/")
 def home():
-    return {"message": "GPT2 LoRA API running"}
+    return {"message": "GPT2 LoRA API running."}
 
 
 @app.post("/generate")
