@@ -3,3 +3,5 @@ uvicorn
 transformers
 peft
 torch
+streamlit
+requests
