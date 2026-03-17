@@ -1,7 +1,7 @@
-fastapi
-uvicorn
-transformers
-peft
-torch
-streamlit
-requests
+fastapi==0.115.12
+uvicorn==0.34.0
+transformers==4.50.1
+peft==0.15.1
+torch==2.6.0
+streamlit==1.44.0
+requests==2.32.3

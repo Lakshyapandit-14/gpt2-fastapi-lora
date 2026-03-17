@@ -1,6 +1,7 @@
+import os
+
 import streamlit as st
 import requests
-import json
 
 # Page configuration
 st.set_page_config(
@@ -31,8 +32,8 @@ st.markdown("""
 st.title("🤖 GPT-2 LoRA Assistant")
 st.markdown("Enter an instruction or question below to generate a response from your fine-tuned GPT-2 model.")
 
-# Backend URL (use 'api' if running inside Docker, 'localhost' if running locally)
-BACKEND_URL = "http://localhost:8000/generate"
+# Backend URL — override with BACKEND_URL env var when running inside Docker
+BACKEND_URL = os.environ.get("BACKEND_URL", "http://localhost:8000/generate")
 
 # Text input
 user_input = st.text_area("Your Instruction:", placeholder="e.g., Explain gravity in simple terms...", height=150)
