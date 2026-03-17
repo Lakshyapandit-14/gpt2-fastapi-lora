@@ -21,7 +21,8 @@ model = PeftModel.from_pretrained(base_model, MODEL_PATH)
 
 model.eval()
 
-class Request(BaseModel):
+
+class GenerateRequest(BaseModel):
     question: str
 
 
@@ -31,7 +32,7 @@ def home():
 
 
 @app.post("/generate")
-def generate(req: Request):
+def generate(req: GenerateRequest):
 
     prompt = f"Instruction: {req.question}\nResponse:"
 
@@ -41,6 +42,7 @@ def generate(req: Request):
         output = model.generate(
             **inputs,
             max_length=150,
+            do_sample=True,
             temperature=0.7,
             top_p=0.9
         )
